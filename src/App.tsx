@@ -1,18 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {HomeScreen} from './screens';
 
 export const App: React.FC = () => {
-  return (
-    <View style={styles.container}>
-      <Text>Hello world!</Text>
-    </View>
-  );
+  return <HomeScreen />;
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
