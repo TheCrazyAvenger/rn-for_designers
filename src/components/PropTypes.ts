@@ -27,3 +27,10 @@ export type MenuItemProps = {
   title: string;
   text: string;
 };
+
+export type ProjectProps = {
+  image: any;
+  title: string;
+  author: string;
+  text: string;
+};
