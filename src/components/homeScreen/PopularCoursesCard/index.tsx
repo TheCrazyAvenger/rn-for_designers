@@ -1,5 +1,6 @@
 import React from 'react';
 import {Image, ImageBackground, View} from 'react-native';
+import {useGetUserNameQuery} from '../../../api';
 import {H4, H5, H6} from '../../../ui/Typography';
 import {PopularCoursesCardProps} from '../../PropTypes';
 import {styles} from './styles';
@@ -13,6 +14,8 @@ export const PopularCoursesCard: React.FC<PopularCoursesCardProps> = ({
   taughtBy,
   logo,
 }) => {
+  const {data} = useGetUserNameQuery({});
+
   return (
     <View style={styles.card}>
       <View style={styles.imageCover}>

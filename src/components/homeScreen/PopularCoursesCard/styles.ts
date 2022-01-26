@@ -60,6 +60,8 @@ export const styles = StyleSheet.create({
     height: 44,
     marginTop: 5,
     marginRight: 8,
+    borderRadius: 88,
+    overflow: 'hidden',
   },
   contentTitle: {
     fontWeight: '600',

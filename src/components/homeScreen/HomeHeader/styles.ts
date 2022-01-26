@@ -17,6 +17,8 @@ export const styles = StyleSheet.create({
     width: 50,
     height: 50,
     marginRight: 10,
+    borderRadius: 25,
+    overflow: 'hidden',
   },
   title: {
     color: colors.lightGray,
