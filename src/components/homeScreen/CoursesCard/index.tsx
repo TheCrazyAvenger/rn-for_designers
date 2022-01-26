@@ -13,6 +13,7 @@ export const CoursesCard: React.FC<CoursesCardProps> = ({
   subtitle,
   caption,
   logo,
+  content,
 }) => {
   const navigation: any = useNavigation();
 
@@ -23,6 +24,7 @@ export const CoursesCard: React.FC<CoursesCardProps> = ({
       subtitle,
       caption,
       logo,
+      content,
     });
 
   return (
@@ -31,12 +33,16 @@ export const CoursesCard: React.FC<CoursesCardProps> = ({
       activeOpacity={0.7}
       style={styles.card}>
       <View style={styles.imageCover}>
-        <ImageBackground source={image} style={styles.cardImage}>
+        <ImageBackground source={{uri: image}} style={styles.cardImage}>
           <H4 style={styles.cardTitle}>{title}</H4>
         </ImageBackground>
       </View>
       <View style={styles.content}>
-        <Image resizeMode="contain" style={styles.contentLogo} source={logo} />
+        <Image
+          resizeMode="contain"
+          style={styles.contentLogo}
+          source={{uri: logo}}
+        />
 
         <View>
           <H5 numberOfLines={1} style={styles.contentTitle}>

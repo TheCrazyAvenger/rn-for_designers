@@ -9,6 +9,7 @@ export type CoursesCardProps = {
   subtitle: string;
   caption: string;
   logo: any;
+  content: string;
 };
 
 export type PopularCoursesCardProps = {

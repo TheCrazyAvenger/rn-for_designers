@@ -57,4 +57,7 @@ export const styles = StyleSheet.create({
 
     elevation: 13,
   },
+  content: {
+    padding: 20,
+  },
 });
