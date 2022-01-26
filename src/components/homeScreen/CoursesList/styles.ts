@@ -11,4 +11,9 @@ export const styles = StyleSheet.create({
     marginLeft: 20,
     textTransform: 'uppercase',
   },
+  queryMessage: {
+    padding: 10,
+    color: colors.lightGray,
+    fontWeight: '500',
+  },
 });

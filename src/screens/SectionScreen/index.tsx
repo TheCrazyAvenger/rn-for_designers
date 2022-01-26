@@ -9,23 +9,27 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {colors} from '../../constants';
-import {H4, H5, H6} from '../../ui/Typography';
+import {H4, H6} from '../../ui/Typography';
 import {styles} from './styles';
 
 export const SectionScreen: React.FC = () => {
   const route: any = useRoute();
   const navigation = useNavigation();
 
-  const {title, image, caption, subtitle, logo} = route.params;
+  const {title, image, caption, subtitle, logo, content} = route.params;
 
   const handleGoBack = () => navigation.goBack();
 
   return (
     <View style={styles.container}>
       <StatusBar hidden />
-      <ImageBackground source={image} style={styles.header}>
+      <ImageBackground source={{uri: image}} style={styles.header}>
         <View style={styles.headerLogo}>
-          <Image resizeMode="contain" style={styles.logo} source={logo} />
+          <Image
+            resizeMode="contain"
+            style={styles.logo}
+            source={{uri: logo}}
+          />
           <H6 style={styles.logoText}>{subtitle}</H6>
         </View>
         <View style={styles.headerContent}>
@@ -36,6 +40,9 @@ export const SectionScreen: React.FC = () => {
           <Icon name="close" size={25} color={colors.blue} />
         </TouchableOpacity>
       </ImageBackground>
+      <View style={styles.content}>
+        <H6>{content}</H6>
+      </View>
     </View>
   );
 };
