@@ -1,4 +1,5 @@
 export * from './colors';
+export * from './routes';
 
 export * from './data/logos';
 export * from './data/cards';

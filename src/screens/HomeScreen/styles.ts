@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: colors.background,
-    borderRadius: 10,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
   },
 });
