@@ -8,10 +8,10 @@ export const styles = StyleSheet.create({
     height: '100%',
     zIndex: 100,
     backgroundColor: colors.white,
+    borderRadius: 10,
   },
   cover: {
     height: 142,
-    // backgroundColor: 'black',
     justifyContent: 'center',
     alignItems: 'center',
   },
