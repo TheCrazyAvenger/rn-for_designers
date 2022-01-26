@@ -16,7 +16,13 @@ export type PopularCoursesCardProps = {
   image: any;
   sections: number;
   subtitle: string;
-  caption: string;
+  taughtBy: string;
   accountImage: any;
   logo: any;
+};
+
+export type MenuItemProps = {
+  icon: string;
+  title: string;
+  text: string;
 };

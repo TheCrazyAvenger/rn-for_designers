@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, ImageBackground, View} from 'react-native';
 import {H4, H5, H6} from '../../../ui/Typography';
-import {CoursesCardProps, PopularCoursesCardProps} from '../../PropTypes';
+import {PopularCoursesCardProps} from '../../PropTypes';
 import {styles} from './styles';
 
 export const PopularCoursesCard: React.FC<PopularCoursesCardProps> = ({
@@ -10,26 +10,31 @@ export const PopularCoursesCard: React.FC<PopularCoursesCardProps> = ({
   accountImage,
   sections,
   subtitle,
-  caption,
+  taughtBy,
   logo,
 }) => {
   return (
     <View style={styles.card}>
       <View style={styles.imageCover}>
         <ImageBackground source={image} style={styles.cardImage}>
+          <Image resizeMode="contain" source={logo} style={styles.logo} />
           <H5 style={styles.cardSections}>{sections} Sections</H5>
           <H4 style={styles.cardTitle}>{title}</H4>
         </ImageBackground>
       </View>
       <View style={styles.content}>
-        <Image resizeMode="contain" style={styles.contentLogo} source={logo} />
+        <Image
+          resizeMode="contain"
+          style={styles.contentLogo}
+          source={accountImage}
+        />
 
-        <View>
-          <H4 numberOfLines={1} style={styles.contentTitle}>
+        <View style={{width: '80%'}}>
+          <H6 numberOfLines={2} style={styles.contentTitle}>
             {subtitle}
-          </H4>
+          </H6>
           <H6 numberOfLines={1} style={styles.contentText}>
-            {caption}
+            Taught by {taughtBy}
           </H6>
         </View>
       </View>

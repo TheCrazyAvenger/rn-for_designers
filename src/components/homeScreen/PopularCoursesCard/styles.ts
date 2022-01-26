@@ -4,7 +4,7 @@ import {colors} from '../../../constants';
 export const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.white,
-    height: 280,
+    height: 335,
     marginVertical: 10,
     borderRadius: 14,
     shadowColor: '#000',
@@ -19,10 +19,18 @@ export const styles = StyleSheet.create({
   },
   imageCover: {
     width: '100%',
-    height: 200,
+    height: 260,
     overflow: 'hidden',
     borderTopRightRadius: 14,
     borderTopLeftRadius: 14,
+  },
+  logo: {
+    width: 48,
+    height: 48,
+    position: 'absolute',
+    top: 90,
+    left: '50%',
+    marginLeft: -24,
   },
   cardImage: {
     width: '100%',
@@ -43,21 +51,22 @@ export const styles = StyleSheet.create({
   },
   content: {
     flexDirection: 'row',
+    paddingTop: 8,
+    alignItems: 'center',
     paddingHorizontal: 20,
-    paddingTop: 15,
   },
   contentLogo: {
-    width: 50,
+    width: 44,
     height: 44,
+    marginTop: 5,
     marginRight: 8,
   },
   contentTitle: {
     fontWeight: '600',
-    fontSize: 18,
   },
   contentText: {
-    fontWeight: '600',
-    textTransform: 'uppercase',
+    fontWeight: '500',
+    fontSize: 13,
     color: colors.lightGray,
   },
 });

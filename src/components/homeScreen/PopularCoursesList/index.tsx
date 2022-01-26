@@ -17,7 +17,7 @@ export const PopularCoursesList: React.FC = () => {
           accountImage={course.accountImage}
           image={course.image}
           subtitle={course.subtitle}
-          caption={course.caption}
+          taughtBy={course.taughtBy}
           logo={course.logo}
           key={i}
         />
