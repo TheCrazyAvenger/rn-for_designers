@@ -3,7 +3,6 @@ import {colors} from '../../../constants';
 
 export const styles = StyleSheet.create({
   container: {
-    maxWidth: '80%',
     height: 460,
     borderRadius: 14,
     overflow: 'hidden',
@@ -23,9 +22,9 @@ export const styles = StyleSheet.create({
     padding: 20,
     justifyContent: 'space-between',
   },
-  image: {},
   title: {
-    width: 300,
+    fontSize: 24,
+    width: 200,
     fontWeight: 'bold',
     color: colors.white,
   },
@@ -38,5 +37,25 @@ export const styles = StyleSheet.create({
     fontSize: 17,
     margin: 20,
     lineHeight: 24,
+  },
+  closeButton: {
+    width: 32,
+    height: 32,
+    borderRadius: 22,
+    backgroundColor: colors.white,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    top: 40,
+    right: 20,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.39,
+    shadowRadius: 8.3,
+
+    elevation: 13,
   },
 });

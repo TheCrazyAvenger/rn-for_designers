@@ -33,4 +33,5 @@ export type ProjectProps = {
   title: string;
   author: string;
   text: string;
+  canOpen?: boolean;
 };
