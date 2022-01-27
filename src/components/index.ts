@@ -6,3 +6,5 @@ export * from './homeScreen/PopularCoursesCard';
 export * from './homeScreen/HeaderCard';
 export * from './homeScreen/Menu';
 export * from './homeScreen/Avatar';
+
+export * from './projectsComponents/Project';
