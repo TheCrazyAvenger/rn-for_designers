@@ -5,26 +5,30 @@ import {styles} from './styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {HeaderCard} from '../HeaderCard';
 import {logos} from '../../../constants';
-import {toggleMenu} from '../../../store/slices/homeSlice';
 import {useAppDispatch, useAppSelector} from '../../../hooks';
 import {Avatar} from '../Avatar';
+import {openLogin} from '../../../store/slices/userSlice';
+import {toggleMenu} from '../../../store/slices/homeSlice';
 
 export const HomeHeader: React.FC = () => {
   const dispatch = useAppDispatch();
   const name = useAppSelector(state => state.user.name);
 
-  const handleMenu = () => dispatch(toggleMenu());
+  const loginHandler = () =>
+    name ? dispatch(toggleMenu()) : dispatch(openLogin());
 
   return (
     <View>
       <View style={styles.titleBar}>
         <View style={styles.content}>
-          <TouchableOpacity style={styles.avatar} onPress={handleMenu}>
+          <TouchableOpacity style={styles.avatar} onPress={loginHandler}>
             <Avatar />
           </TouchableOpacity>
-          <View>
+          <View style={{maxWidth: '80%'}}>
             <H6 style={styles.title}>Welcome back,</H6>
-            <H5 style={styles.name}>{name ? name : 'Anonymous'}</H5>
+            <H5 numberOfLines={1} style={styles.name}>
+              {name ? name : 'Stranger'}
+            </H5>
           </View>
         </View>
         <Icon name="notifications" size={32} color="#4775f2" />

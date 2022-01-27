@@ -1,9 +1,16 @@
 import React, {useEffect, useRef} from 'react';
-import {Animated, StatusBar, View} from 'react-native';
+import {
+  Animated,
+  KeyboardAvoidingView,
+  Platform,
+  StatusBar,
+  View,
+} from 'react-native';
 import {
   CoursesList,
   HomeHeader,
   Menu,
+  ModalLogin,
   PopularCoursesList,
 } from '../../components';
 import {useAppSelector} from '../../hooks';
@@ -39,20 +46,26 @@ export const HomeScreen: React.FC = () => {
   }, [actionMenu]);
 
   return (
-    <View style={styles.mainContainer}>
-      <StatusBar
-        barStyle="dark-content"
-        translucent
-        backgroundColor={'transparent'}
-      />
-      <Menu />
-      <Animated.ScrollView
-        style={{...styles.container, transform: [{scale}], opacity}}
-        showsVerticalScrollIndicator={false}>
-        <HomeHeader />
-        <CoursesList />
-        <PopularCoursesList />
-      </Animated.ScrollView>
-    </View>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      style={{flex: 1}}>
+      <View style={styles.mainContainer}>
+        <StatusBar
+          barStyle="dark-content"
+          translucent
+          backgroundColor={'transparent'}
+        />
+
+        <ModalLogin />
+        <Menu />
+        <Animated.ScrollView
+          style={{...styles.container, transform: [{scale}], opacity}}
+          showsVerticalScrollIndicator={false}>
+          <HomeHeader />
+          <CoursesList />
+          <PopularCoursesList />
+        </Animated.ScrollView>
+      </View>
+    </KeyboardAvoidingView>
   );
 };

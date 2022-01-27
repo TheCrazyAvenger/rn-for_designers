@@ -35,3 +35,7 @@ export type ProjectProps = {
   text: string;
   canOpen?: boolean;
 };
+
+export type SuccessProps = {
+  isActive: boolean;
+};

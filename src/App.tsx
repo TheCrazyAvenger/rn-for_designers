@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Provider} from 'react-redux';
 import {AppNavigator} from './navigation/AppNavigator';
 import {store} from './store/store';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {ApolloClient, ApolloProvider, InMemoryCache} from '@apollo/client';
+import SplashScreen from 'react-native-splash-screen';
 
 const client = new ApolloClient({
   uri: 'https://graphql.contentful.com/content/v1/spaces/quum10sp2r8m',
@@ -16,6 +17,10 @@ const client = new ApolloClient({
 });
 
 export const App: React.FC = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <ApolloProvider client={client}>
       <NavigationContainer>
