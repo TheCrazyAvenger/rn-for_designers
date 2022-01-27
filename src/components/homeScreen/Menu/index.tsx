@@ -10,9 +10,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {colors, menuItems} from '../../../constants';
 import {useAppDispatch, useAppSelector} from '../../../hooks';
 import {toggleMenu} from '../../../store/slices/homeSlice';
+import {setAvatar, setName} from '../../../store/slices/userSlice';
 import {H4, Paragraph} from '../../../ui/Typography';
 import {MenuItem} from '../MenuItem';
 import {styles} from './styles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const screenHeight = Dimensions.get('window').height;
 
@@ -23,6 +25,20 @@ export const Menu: React.FC = () => {
   const top = useRef(new Animated.Value(screenHeight)).current;
 
   const handleMenu = () => dispatch(toggleMenu());
+
+  const handleMenuItem = async (index: number) => {
+    try {
+      if (index === 3) {
+        dispatch(toggleMenu());
+        dispatch(setName(''));
+        dispatch(setAvatar(null));
+        await AsyncStorage.removeItem('name');
+        await AsyncStorage.removeItem('avatar');
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   useEffect(() => {
     if (actionMenu) {
@@ -54,12 +70,12 @@ export const Menu: React.FC = () => {
       </TouchableOpacity>
       <View style={styles.menu}>
         {menuItems.map((item, i) => (
-          <MenuItem
-            icon={item.icon}
-            title={item.title}
-            text={item.text}
+          <TouchableOpacity
             key={i}
-          />
+            activeOpacity={0.7}
+            onPress={() => handleMenuItem(i)}>
+            <MenuItem icon={item.icon} title={item.title} text={item.text} />
+          </TouchableOpacity>
         ))}
       </View>
     </Animated.View>

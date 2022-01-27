@@ -1,28 +1,19 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Image} from 'react-native';
-import {useGetUserNameQuery} from '../../../api';
-import {useAppDispatch} from '../../../hooks';
-import {setName} from '../../../store/slices/userSlice';
+import {useAppSelector} from '../../../hooks';
 import {styles} from './styles';
 
 export const Avatar: React.FC = () => {
-  const {data} = useGetUserNameQuery({});
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    if (data) {
-      dispatch(setName(data.results[0].name.first));
-    }
-  }, [data]);
+  const avatar = useAppSelector(state => state.user.avatar);
 
   return (
     <Image
       style={styles.image}
       resizeMode="contain"
       source={
-        data
+        avatar
           ? {
-              uri: data.results[0].picture.medium,
+              uri: avatar,
             }
           : require('../../../assets/avatar.png')
       }
